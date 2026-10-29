@@ -38,5 +38,5 @@ tasks.register("showVersion") {
 tasks.register("customGreeting", GreetingTask) {
     group = "Greetings"
     description = "Greets a specific person"
-    greeterName.set("Gradle User")
+    greeterName = "Gradle User"
 }
