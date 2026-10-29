@@ -6,12 +6,28 @@ plugins {
     id 'buildlogic.java-application-conventions'
 }
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
     implementation 'org.apache.commons:commons-text'
     implementation project(':utilities')
+
+    // テストコードでのみ使用するライブラリ
+    testImplementation(libs.junit.jupiter.api)
+    testRuntimeOnly(libs.junit.jupiter.engine)
 }
 
 application {
     // Define the main class for the application.
     mainClass = 'org.example.app.App'
+}
+
+tasks.register("showVersion") {
+    group = "Help"
+    description = "Displays the project version"
+    doLast {
+        println("Project version: ${project.version}")
+    }
 }
